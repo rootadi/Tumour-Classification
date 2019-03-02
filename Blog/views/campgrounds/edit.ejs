@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Blogging is Life</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/main.css"> 
+        <link rel="stylesheet" href="/stylesheets/shows.css">
+        <style>
+body, html {
+  height: 100%;
+}
+.bg {
+  /* The image used */
+  background-image: url(https://images.pexels.com/photos/688014/pexels-photo-688014.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+    </head>
+<body>
+
+<div class="bg">
+<div class="container">
+    <div class="row" style="margin-top: 150px">
+        <h1 style="text-align:center;">Edit <i><%= campground.name %></i></h1>
+        <div style="width: 35%; margin: 25px auto;">
+            <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="campground[name]" value="<%= campground.name %>">
+                </div>
+                <div class="form-group" >
+                    <input class="form-control" type="text" name="campground[image]" value="<%= campground.image %>">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="campground[description]" value="<%= campground.description %>">
+                </div>
+                <div class="form-group">    
+                    <button class="btn btn-lg btn-primary btn-block">Submit</button>
+                </div> 
+                <div><br><a href="/campgrounds/<%=campground._id %>" style="color:darkblue;text-decoration: none;font-size: medium">  Go Back</a></div>   
+            </form>
+            
+        </div>
+    </div>
+</div>
+</div>
+<% include ../partials/footer %>
